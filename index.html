@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog da Ana Luiza ✨</title>
+  <style>
+    /* Estilos Gerais */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #fff0f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Cabeçalho Elaborado */
+    header {
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      padding: 50px 0;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(255, 117, 140, 0.3);
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+    }
+
+    .profile-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover; /* Faz a foto se ajustar sem achatar */
+  margin: 0 auto 15px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 3px solid white;
+  display: block;
+}
+
+    header h1 {
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.95;
+    }
+
+    /* Conteúdo do Post */
+    main {
+      flex: 1;
+      padding: 40px 0;
+    }
+
+    .post-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 35px;
+      box-shadow: 0 10px 25px rgba(255, 117, 140, 0.12);
+      border: 1px solid #ffe1e9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .post-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(90deg, #ff758c, #ff7eb3);
+    }
+
+    .post-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .tag {
+      background-color: #ffe5ec;
+      color: #ff477e;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .post-date {
+      color: #aaa;
+      font-size: 0.85rem;
+    }
+
+    .post-card h2 {
+      color: #d6336c;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .post-content p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    /* Área Interativa de Reações */
+    .reactions-section {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 2px dashed #ffe1e9;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .reaction-title {
+      font-size: 0.95rem;
+      color: #777;
+      font-weight: 600;
+    }
+
+    .reaction-buttons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .btn-reaction {
+      border: none;
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-like {
+      background-color: #ff477e;
+      color: white;
+    }
+
+    .btn-like:hover {
+      background-color: #d6336c;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(255, 71, 126, 0.3);
+    }
+
+    .btn-dislike {
+      background-color: #fff0f5;
+      color: #d6336c;
+      border: 1px solid #ffd1dc;
+    }
+
+    .btn-dislike:hover {
+      background-color: #ffe1e9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(214, 51, 108, 0.15);
+    }
+
+    .count-badge {
+      background: rgba(255, 255, 255, 0.3);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+    }
+
+    .btn-dislike .count-badge {
+      background: rgba(214, 51, 108, 0.1);
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background-color: #ffe5ec;
+      color: #d6336c;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <img src="foto de perfil.jpg" alt="Foto da Ana Luiza" class="profile-avatar">
+      <h1>Blog da Ana Luiza ✨</h1>
+      <p>Pensamentos, estilo de vida e novidades do meu dia a dia</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <article class="post-card">
+      <div class="post-header">
+        <span class="tag">Destaque</span>
+        <span class="post-date" id="date"></span>
+      </div>
+
+      <h2>Bem-vindos ao Meu Novo Espaço! 🌸</h2>
+      
+      <div class="post-content">
+        <p>Olá, pessoal! Seja muito bem-vindo(a) ao meu blog oficial. Montei este espaço com muito carinho para compartilhar ideias, experiências e um pouquinho do meu cotidiano com vocês.</p>
+        <p>Espero que vocês gostem do conteúdo que vem por aí. Fiquem à vontade para curtir ou deixar sua reação abaixo!</p>
+      </div>
+
+      <div class="reactions-section">
+        <span class="reaction-title">O que achou deste post?</span>
+        <div class="reaction-buttons">
+          <button id="likeBtn" class="btn-reaction btn-like">
+            ❤️ Curtir <span id="likeCount" class="count-badge">0</span>
+          </button>
+          <button id="dislikeBtn" class="btn-reaction btn-dislike">
+            💔 Desgostar <span id="dislikeCount" class="count-badge">0</span>
+          </button>
+        </div>
+      </div>
+    </article>
+    <article class="post-card" style="margin-top: 30px;">
+  <div class="post-header">
+    <span class="tag">Dicas</span>
+    <span class="post-date">24 de julho de 2026</span>
+  </div>
+
+  <h2>Como Organizar a Rotina Sem Estresse! 📑✨</h2>
+  
+  <div class="post-content">
+    <p>Sabe aqueles dias em que parece que o tempo voa e a gente não consegue fazer metade do que planejou? Eu passei bastante por isso ultimamente, então decidi testar algumas pequenas mudanças na minha rotina.</p>
+    <p>A dica principal que funcionou para mim foi listar apenas <strong>3 metas principais</strong> para o dia. Em vez de tentar fazer mil coisas ao mesmo tempo, focar no que realmente importa deixa tudo mais leve e produtivo!</p>
+    <p>E você, qual é a sua dica favorita para manter a rotina organizada?</p>
+  </div>
+
+  <div class="reactions-section">
+    <span class="reaction-title">O que achou deste post?</span>
+    <div class="reaction-buttons">
+      <button class="btn-reaction btn-like" onclick="reagir(this, 'like')">
+        ❤️ Curtir <span class="count-badge">0</span>
+      </button>
+      <button class="btn-reaction btn-dislike" onclick="reagir(this, 'dislike')">
+        💔 Desgostar <span class="count-badge">0</span>
+      </button>
+    </div>
+  </div>
+</article>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Ana Luiza. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
